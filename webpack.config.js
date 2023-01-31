@@ -27,10 +27,10 @@ const config = {
     ],
     module: {
         rules: [
-            {
-                test: /\.(js|jsx)$/i,
-                loader: 'babel-loader',
-            },
+            // {
+            //     test: /\.(js|jsx)$/i,
+            //     loader: 'babel-loader',
+            // },
             {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader,'css-loader'],
@@ -39,6 +39,11 @@ const config = {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
             },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader'],
+            }
 
             // Add your rules for custom modules here
             // Learn more about loaders from https://webpack.js.org/loaders/
